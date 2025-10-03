@@ -79,3 +79,28 @@ cdk destroy
 - Ensure AWS credentials are properly configured for deployment.
 
 
+## Usage
+The Order Creation lambda is expecting an event containing an order:
+
+```json
+{
+  "body": {
+    "orderId": "1",
+    "item": "burger"
+  }
+}
+```
+
+## Screenshots
+
+#### Unit Tests
+![alt text](https://github.com/logi-26/serverless-snacks/blob/main/screenshots/tests.png?raw=true)
+
+#### Items in DynamoDB
+![alt text](https://github.com/logi-26/serverless-snacks/blob/main/screenshots/dynamo.png?raw=true)
+
+#### Items in DLQ (sent 5 invalid orders for testing)
+![alt text](https://github.com/logi-26/serverless-snacks/blob/main/screenshots/dead%20letter%20queue.png?raw=true)
+
+#### DLQ Email Alert
+![alt text](https://github.com/logi-26/serverless-snacks/blob/main/screenshots/email%20alert.png?raw=true)
