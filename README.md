@@ -91,6 +91,20 @@ The Order Creation lambda is expecting an event containing an order:
 }
 ```
 
+
+## CI/CD Pipeline
+- A GitHub Actions workflow (`deploy.yml`) automates testing and deployment.
+- On push to the `main` branch, the pipeline:
+  1. Installs dependencies (Python, Node.js, CDK CLI).
+  2. Runs unit tests with `pytest`.
+  3. Synthesizes the CDK stack.
+  4. Deploys the stack to AWS.
+- **Setup**:
+  1. Add `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_DEFAULT_REGION` as GitHub Secrets.
+  2. Ensure the AWS account is bootstrapped (`cdk bootstrap`).
+- Monitor runs in the GitHub `Actions` tab.
+
+
 ## Screenshots
 
 #### Unit Tests
